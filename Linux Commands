@@ -1,1 +1,39 @@
+Software used for demo
+----------------------
+1. Visual studio code terminal can be used to practice linux
+2. 
 
+pwd  -  returns the path of the current working directory.
+clear - clear the screen
+
+whoami - to check the user in linux machine
+uname - to know the operating system
+
+cd - change directory
+cd.. (with two dots) to move one directory up
+cd to go straight to the home folder
+cd- (with a hyphen) to move to your previous directory
+
+
+Listing Files
+-------------
+ls - view the content of a directory [ files present inside a directory is displayed]
+ls-R - will list all the files in the subdirectory as well
+ls-a  - will show the hidden files
+ls-al will list the files and directories with detailed information like permission, size, owner, etc.
+
+
+copy commands
+-------------
+cat - list the content of a file on the standard output
+cat>filename create a new file
+cat>filename1 filename2>filename3 join two files and stores the output of them in one new file.
+
+cp - copy files
+cp file2.txt file3.txt [ copies the content of file2 to file3]
+mv - move or rename files
+mkdir - make a directory
+
+
+rm - remove file and directories
+rm-r - to remove directory and all files inside
