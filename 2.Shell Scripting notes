@@ -48,3 +48,21 @@ root@ip-172-31-23-135:~# chmod +x myscript.sh
 root@ip-172-31-23-135:~# ./myscript.sh
 hello
 
+
+Demo 4: to print nos
+#!/bin/bash
+
+for i in 1 2 3 4 5
+do
+echo "$i"
+done
+
+output:
+root@ip-172-31-23-135:~# chmod +x myscript2.sh
+root@ip-172-31-23-135:~# ./myscript2.sh
+1
+2
+3
+4
+5
+
