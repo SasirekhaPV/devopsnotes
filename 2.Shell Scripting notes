@@ -1,1 +1,50 @@
+use the ubuntu linux machine for practice
+
+Demo1 :Print hello world
+root@ip-172-31-23-135:~# echo "hello world"
+hello world
+
+
+Demo 2 : read & print name
+root@ip-172-31-23-135:~# read name
+sasi
+root@ip-172-31-23-135:~# echo "$name"
+sasi
+
+Demo 3: customized string 
+root@ip-172-31-23-135:~# read -p "pick a number :" x
+pick a number :5
+root@ip-172-31-23-135:~# echo "$x"
+5
+
+Demo 4: cat command
+cat: names.txt: No such file or directory
+root@ip-172-31-23-135:~# touch names.txt
+root@ip-172-31-23-135:~# vi names.txt
+root@ip-172-31-23-135:~# cat names.txt
+john
+jimmy
+rose
+dolly
+root@ip-172-31-23-135:~# echo "sasi">names.txt  [ over writes]
+root@ip-172-31-23-135:~# cat names.txt
+sasi
+root@ip-172-31-23-135:~# echo "john">>names.txt [ append it]
+root@ip-172-31-23-135:~# cat names.txt
+sasi
+john
+
+ubuntu terminal nano myscript.sh
+
+#!/bin/bash
+
+clear
+echo "Hello"
+read -p " please enter ur name:" name
+echo "$name" >>names.txt
+
+To run the script
+root@ip-172-31-23-135:~# chmod +x myscript.sh
+root@ip-172-31-23-135:~# ./myscript.sh
+hello
 
