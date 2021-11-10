@@ -1,19 +1,136 @@
-Software used for demo
-----------------------
+Software Requirements
+########################################################################################################################################################
+
 1. Visual studio code terminal can be used to practice linux
-2. 
+2. create ubutu machine in AWS and work with the commands
 
+
+
+How to setup the ubuntu machine on the cloud?
+#########################################################################################################################################################
+
+open power shell> cd .\downloads\
+power shell>  chmod 400 ubuntu-machine.pem
+power shell> ssh -i "ubuntu-machine.pem" ubuntu@ec2-54-234-146-182.compute-1.amazonaws.com
+get the linux machine and change to sudo su -  [ sudo means substitute user do]  [ su  - switches you to the root user account]
+
+
+
+User information commands
+##########################################################################################################################################################
+
+who - to get information about currently logged in user on to system.
+whoami: It display the system’s username
+
+id: It display the user identification information
+uid=0(root) gid=0(root) groups=0(root)
+
+groups - This command is used to display all the groups for which the user belongs to.
+root
+
+finger: Used to check the information of any currently logged in users. i.e, It displays users login time, tty (name), idle time, home directory, shell name etc.
+This may not be available by default in many linux machines. In this case, you need to install it manually.
+$ sudo apt install finger
+Login     Name       Tty      Idle  Login Time   Office     Office Phone
+ubuntu    Ubuntu    *pts/0          Nov 10 18:09 (117.223.248.237)
+
+users: Displays usernames of all users currently logged on the system.
+ubuntu
+
+grep: It is a powerful pattern searching tool to find information about a specific user from the system accounts file: /etc/passwd.
+root@ip-172-31-23-135:~# grep -i ubuntu  /etc/passwd
+ubuntu:x:1000:1000:Ubuntu:/home/ubuntu:/bin/bash
+
+W Command: It(W) is a command-line utility that displays information about currently logged in users and what each user is doing.
+root@ip-172-31-23-135:~# w
+18:20:45 up 11 min,  1 user,  load average: 0.00, 0.07, 0.09
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+ubuntu   pts/0    117.223.248.237  18:09    1.00s  0.06s  0.01s sshd: ubuntu [priv]
+
+last or lastb: Displays a list of last logged in users on the system. You can pass user names to display their login and hostname details.
+lastlog: The lastlog command is used to find the details of a recent login of all users or of a given user.
+
+
+Files and Directory commands
+##################################################################################################################################################################
 pwd  -  returns the path of the current working directory.
-clear - clear the screen
+root@ip-172-31-23-135:~# pwd
+/root
 
+mkdir The mkdir(make directory) command allows users to create directories or folders.
+root@ip-172-31-23-135:~# mkdir java
+root@ip-172-31-23-135:~# mkdir spring
+root@ip-172-31-23-135:~# ls
+A  gitprojectdemocodes  java  projectA  snap  spring
+
+The option '-p' is used to create multiple directories or parent directories at once.
+$ mkdir -p dir1/dir2/dir3
+$ cd dir1/dir2/dir3
+~/Desktop/Linux/dir1/dir2/dir3$
+
+rmdir: The rmdir(remove directories) is used to remove empty directories. 
+Can be used to delete multiple empty directories as well. 
+Safer to use compared to rm -r FolderName. 
+This command can also be forced to delete non-empty directories.
+
+i. remove empty directory
+-------------------------
+rmdir spring  [ no files should be there in the directory]
+
+ii. Remove multiple directory
+rmdir dir1 dir2 dir3
+root@ip-172-31-23-135:~# mkdir dir4
+root@ip-172-31-23-135:~# mkdir dir5
+root@ip-172-31-23-135:~# ls
+A  dir1  dir2  dir3  dir4  dir5  gitprojectdemocodes  projectA  snap
+root@ip-172-31-23-135:~# rmdir dir4 dir5
+root@ip-172-31-23-135:~# ls
+A  dir1  dir2  dir3  gitprojectdemocodes  projectA  snap
+
+Remove non-empty directories:
+rmdir FolderName1 --ignore-fail-on-non-empty
+
+Remove entire directory tree. This command is similar to rmdir a/b/c a/b a:
+rmdir -p a/b/c
+
+rm: The rm(remove) command is used to remove objects such as files, directories, symbolic links etc from the file system.
+
+Remove file: The rm command is used to remove or delete a file
+rm file_name
+root@ip-172-31-23-135:~/test# ls
+sample1.txt
+root@ip-172-31-23-135:~/test# rm sample1.txt
+root@ip-172-31-23-135:~/test# ls
+
+Remove file forcefully: The rm command with -f option is used for removal of file without prompting for confirmation.
+rm -f filename
+
+root@ip-172-31-23-135:~/projectA# ls
+abc.java  file2.txt            helloworld.java  script.sh
+abc.txt   gitprojectdemocodes  newfile1.txt
+root@ip-172-31-23-135:~/projectA# rm -f  abc.java
+root@ip-172-31-23-135:~/projectA# ls
+abc.txt  file2.txt  gitprojectdemocodes  helloworld.java  newfile1.txt  script.sh
+root@ip-172-31-23-135:~/projectA#
+
+
+Remove directory: The rm command with -r option is used to remove the directory and its contents recursively.
+rm -r myDir
+
+Remove directory forcefully: The rm command with -rf option is used to forcefully remove directory recursively.
+rm -rf myDir
+
+https://github.com/sudheerj/Linux-cheat-sheet#file-and-directory-commands
+
+@@@@@@@@@@@@@@@@@
+
+clear - clear the screen
 whoami - to check the user in linux machine
 uname - to know the operating system
-
 cd - change directory
 cd.. (with two dots) to move one directory up
 cd to go straight to the home folder
 cd- (with a hyphen) to move to your previous directory
-
 
 Listing Files
 -------------
