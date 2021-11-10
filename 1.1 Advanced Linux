@@ -1,0 +1,126 @@
+WebServers in Linux
+Apache
+nginx
+Lightpd
+Listens on port no 80 and 443 for incoming request
+
+apache
+Free & open source
+cross platform
+Apache 2.0
+released in 1995
+Apache uses .htaccess for its configuration
+First web server software to serve more than 100 million web site in 2009.
+312 million web servers run apaches as on april 2021
+
+nginx
+Free & open source
+cross platform
+web server software
+released under FreeBSD license
+initial release -2004
+owned by F5 Networks
+Nginx modular event driven architecture can provide predictable performance under high loads(build time)
+432 million web servers run nginx as on april 2021.
+
+Managing Services using Systemd
+--------------------------------------------
+sudo systemctl start [ application.server]
+sudo systemctl stop [ application.server]
+sudo systemctl restart [application.server]
+sudo systemctl reload[applicaiton.server]
+sudo systemctl enable[application.server]
+sudo systemctl disable[applicaiton.server]
+sudo systemctl status[applicaiton.server]
+
+systemd  - system configuration
+which init - allows you to see where your process init is located
+readlink will allow you to see what process controls your service
+configuration
+
+View ,create , copy , move and remove files
+---------------------------------------------------------
+view files
+ls [options][paths]
+ls -a  : list all files including hidden files.
+ls -A  : list all files including hidden files except for "." and ".." these refers to the entries
+for the current directory and for the parent directory.
+ls  -R  :list all files recursively, descending down the directory tree from the given paths
+ls  -l : list the files in long format i.e . with an index number,owner name, group name, size and permissions.
+ls -o: list the files in long format but without the group name
+ls -g :list the files in long  format but without the owner name
+ls  -i: list the files along with their index number
+ls  -s : list the files along with their size.
+ls  -t: sort the list by time of modificaiton, with the newest at the top
+ls -S: sort the list by size , with the largest at the top
+ls -r: reverse the sorting order
+
+File commands
+--------------------
+cat  - list the content of a file on the standard output
+cp - copy files or directories
+mv - move or rename files or directories
+mkdir - create a new directory in the current directory
+rm  - remove file and directories
+Touch - update time and date of file
+touch  - create a new files
+
+Practice commands
+-------------------------
+l​s - https://ss64.com/bash/ls.html
+
+c​at - https://ss64.com/bash/cat.html
+
+c​p - https://ss64.com/bash/cp.html
+
+m​v - https://ss64.com/bash/mv.html
+
+m​kdir - https://ss64.com/bash/mkdir.html
+
+r​m - https://ss64.com/bash/rm.html
+
+t​ouch - https://ss64.com/bash/touch.html
+https://ss64.com/bash/ln.html
+
+Reading Files
+pr - https://ss64.com/bash/pr.html
+
+head - https://ss64.com/bash/head.html
+
+tail - https://ss64.com/bash/tail.html
+
+grep - https://ss64.com/bash/grep.html
+
+less - https://ss64.com/bash/less.html
+
+more - https://ss64.com/bash/more.html
+
+find and compare files
+-----------------------------
+diff file1.txt file2.txt  - make comparisions between two files, line by line.
+options:
+-q : if files are different , issue a simple message expressing this.
+-r : compare any sub directories within the original directory tree, and consecutively compare their
+contents and the sub directories as well
+-y : display output in two columns.
+
+Locate command
+-----------------------
+
+
+Find command
+-------------------
+Allows you to locate files based on data, such as who owns the file, when the file was last modifed , permissions
+set on the file , and so.
+
+Example:
+find .-name"*.txt"
+
+diff - https://ss64.com/bash/diff.html
+
+which - https://ss64.com/bash/which.html
+
+locate - https://ss64.com/bash/locate.html
+
+f​ind - https://ss64.com/bash/find.html
+
