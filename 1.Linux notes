@@ -1,5 +1,5 @@
  Software Requirements
-########################################################################################################################################################
+################################################################################################################################################################################
 
 1. Visual studio code terminal can be used to practice linux
 2. create ubutu machine in AWS and work with the commands
@@ -7,7 +7,7 @@
 
 
 How to setup the ubuntu machine on the cloud?
-#########################################################################################################################################################
+###############################################################################################################################################################################
 
 open power shell> cd .\downloads\
 power shell>  chmod 400 ubuntu-machine.pem
@@ -17,7 +17,7 @@ get the linux machine and change to sudo su -  [ sudo means substitute user do] 
 
 
 User information commands
-##########################################################################################################################################################
+###############################################################################################################################################################################
 who - to get information about currently logged in user on to system.
 whoami:  to check the user in linux machine
 uname - to know the operating system
@@ -51,9 +51,31 @@ ubuntu   pts/0    117.223.248.237  18:09    1.00s  0.06s  0.01s sshd: ubuntu [pr
 
 last or lastb: Displays a list of last logged in users on the system. You can pass user names to display their login and hostname details.
 lastlog: The lastlog command is used to find the details of a recent login of all users or of a given user.
+Get basic information about the operating system
+uname - By default the command prints the kernel name.
+uname -a - Using the -a opton prints all the system information in the following order: 
+Kernel name, network node hostname, kernel release date,  kernel version, machine hardware name, hardware platform, operating system.
+
+Get information about active processes
+ps  - lists the processes that are currently running and their PIDs (process ids).
+ps -e -displays all the processes running on the system.
+
+1.7 )Get information on the running processes and system resources
+top
+
+top command provides a dynamic real-time view of the running system.
+It shows the summary information of the system and the list of processes or threads which are currently managed by the Kernel.
+It gives information related to cpu and memory usage per process.
+The output keeps refreshing until you press 'q' or Ctrl+c
+
+echo "Welcome to the linux lab" - displays the given text on the screen.
+echo -e "This will be printed \nin two lines" 
+
+
+
 
 Date Commands
-#################################################################################################################################################################
+################################################################################################################################################################################
 date - Display date and time
 date "+%D" - The following command displays current date in mm/dd/yy format
 
@@ -69,7 +91,7 @@ Specifier	            Explaination
 
 
 Files and Directory commands
-##################################################################################################################################################################
+################################################################################################################################################################################
 pwd  -  Prints the name of your current working directory.
 root@ip-172-31-23-135:~# pwd
 /root
@@ -149,13 +171,115 @@ cd.. (with two dots) to move one directory up
 cd to go straight to the home folder
 cd- (with a hyphen) to move to your previous directory
 
+Search and locate files
+
+find
+
+Find command is used to search for files in a directory. You can search for files based on different categories like file name, file type, owner, size, timestamps etc.
+Find command conducts the search in the entire directory tree starting from the directory name given.
+This command finds all txt files in the subfolders of the /etc directory.
+find /etc -name '*.txt' 
+
+
+Display the amount of disk space available on file systems
+df
+The 'df' command displays the information of device name, total blocks, total disk space, used disk space,
+ available disk space and mount points on a file system.
+ Without any arguments, the commands shows the information for all currently mounted file systems. df
+ 
+ Use the -h option to view the disk space usage in human readable format, i.e, in megabytes, gigabytes etc.
+ df -h
+ 
+ File Management Commands
+ ###############################################################################################################################################################################
+  Display file contents
+ cat
+
+cat command displays contents of files.
+The following command prints the content of the file usdoi.txt which you have downloaded earlier.
+cat usdoi.txt
+
+If you get a file not found error, then run these commands.
+
+cd takes you to your home directory.
+
+wget download the file.
+cat will print the file onto the screen.
+cd
+wget https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DB0250EN-SkillsNetwork/labs/Bash%20Scripting/usdoi.txt
+cat usdoi.txt
+
+ Display file contents page-wise
+more
+
+The more command displays the file contents page by page.
+Press spacebar to display the next page.
+more usdoi.txt
+
+3.3. Display first few lines of a file
+head
+
+Print the first 10 lines of the file usdoi.txt.
+head usdoi.txt
+
+You can specify the number of lines to be printed.
+Print the first 3 lines of the file usdoi.txt.
+head -3 usdoi.txt
+
+Display last lines of a file
+
+tail
+Print the last 10 lines of the file usdoi.txt.
+tail usdoi.txt
+
+You can specify the number of lines to be printed.
+Print the last 2 lines of the file usdoi.txt.
+tail -2 usdoi.txt
+
 Listing Files
 -------------
 ls - view the content of a directory [ files present inside a directory is displayed]
 ls-R - will list all the files in the subdirectory as well
 ls-a  - will show the hidden files
 ls-al will list the files and directories with detailed information like permission, size, owner, etc.
+Get a list of files in a directory
+ls = Lists the files in the current directory or the directory given as argument.
+Prints a long list of files that has additional information compared to the simple ls command
 
+Here are some popular options that you can try with the ls command.
+
+Option	          Description
+-a	              list all the files including hidden files
+-d	              list directories themselves, not their contents
+-h	              with -l and -s, print sizes like 1K, 234M, 2G etc
+-l	              long listing of files which include information about permission, owner, size etc
+-F	              classify files by appending type indcator like *,/ etc. to file names
+-r	              reverse order while sorting
+-S	              sort by file size, largest first
+-t	              sort by time, newest first
+
+Get a long listing of all files in /etc, including hidden files, if any.
+ls -la /etc
+
+To list the files based on modifcation time, use -t option.
+The most recently modified file will be on top.
+This is more frequently used with -l option.
+ls -lt
+
+To view the current directory attributes instead of their contents, use the following command. If you want any other directory's attributes, provide the directory name as argument.
+ls -ld /etc
+
+To list the files sorted by file size in descending order, use -S option.
+ls -lS
+
+To get the files sorted by file size in ascending order, add -r option.
+ls -lrS
+
+List the files and directories
+ls - List the files and directories in the current directory.
+ls /bin - list all the files in the /bin directory
+ls /bin/b* - List all files starting with b in the /bin directory.
+ls /bin/*r - List all files ending with r in the /bin directory.
 
 copy commands
 -------------
@@ -165,13 +289,52 @@ cat>filename1 filename2>filename3 join two files and stores the output of them i
 
 cp - copy files
 cp file2.txt file3.txt [ copies the content of file2 to file3]
+
+cp
+Copy usdoi.txt into a file named usdoi-backup.txt.
+cp usdoi.txt usdoi-backup.txt
+
+Use ls command to verify if the copy was successful.
+ls
+
+The command below copies the content of /etc/passwd to a file named 'users.txt' under the current directory.
+cp /etc/passwd users.txt
+
+Use ls command to verify if the copy was successful.
+ls
 mv - move or rename files
-mkdir - make a directory
+mv command moves a file from one directory to another.
 
+While moving a file, if the target file is existing, it is overwritten.
 
+If the source and target directories are same, it works like rename operation.
+Rename users.txt as user-info.txt
+mv users.txt user-info.txt
+
+Use ls command to verify.
+
+ls
+Move user-info.txt to the /tmp directory
+mv user-info.txt  /tmp
+
+Use ls command to verify.
+ls
+ls -l /tmp
+
+Create a blank file
+touch
+Create an empty file named myfile.txt
+touch myfile.txt
+
+Use ls command to verify.
+ls -l
+If the file already exists, the touch command updates the access timestamp of the file.
+touch usdoi.txt
+Use ls command to verify.
+ls -l
 
 Create and manage file archives
-############################################################################################################################
+################################################################################################################################################################################
 tar
 tar command allows you to copy multiple files and directories into a single archive file.
 
@@ -197,7 +360,7 @@ ls -l
 
 
  Package and compress archive files
-############################################################################################
+##############################################################################################################################################################################
 zip
 
 zip command allows you to compress files.
@@ -225,7 +388,7 @@ You should see a folder named bin created in your directory.
 
 
 Access Control Commands
-#####################################################################################
+###############################################################################################################################################################################
 Each file/directory has permissions set for the file owner, group owner and others.
 
 The following permissions are set for each file:
@@ -279,7 +442,7 @@ ls -l usdoi.txt
 
 
 Text Processing Commands
-###########################################################################################
+#############################################################################################################################################################################
 5.1. Count lines, words or characters
 
 wc
@@ -302,7 +465,7 @@ wc -c usdoi.txt
 
 
 Perform search operations within the text
-###################################################################################################
+##############################################################################################################################################################################
 
 grep
 grep command allows you to specify patterns and search for lines matching the pattern, from the input text.
@@ -325,7 +488,7 @@ grep -v login /etc/passwd
 
 
 Networking commands
-####################################################################################################
+###############################################################################################################################################################################
 Show the system's host name
 
 hostname
@@ -371,3 +534,18 @@ Access the file at the given url and display the contents on to the screen.
 curl https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DB0250EN-SkillsNetwork/labs/Bash%20Scripting/usdoi.txt
 Access the file at the given url and save it in the current directory.
 curl -O https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DB0250EN-SkillsNetwork/labs/Bash%20Scripting/usdoi.txt
+
+Download a file from the internet.
+################################################################################################################################################################################
+wget command helps you to donwload a file at a given url.
+
+This command download the file usdoi.txt from the given url.
+
+wget https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DB0250EN-SkillsNetwork/labs/Bash%20Scripting/usdoi.txt
+
+Verify using the ls command - ls
+
+
+man command displays the user manual of the command given as argument.
+For example, to see the manual page of 'ls' command, use:
+man ls
