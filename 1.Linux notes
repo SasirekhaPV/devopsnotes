@@ -549,3 +549,10 @@ Verify using the ls command - ls
 man command displays the user manual of the command given as argument.
 For example, to see the manual page of 'ls' command, use:
 man ls
+
+
+
+ADDITIONAL REFERENCES
+################################################################################################################################################################################
+https://github.com/sudheerj/Linux-cheat-sheet#search-files
+
