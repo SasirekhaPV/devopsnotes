@@ -562,6 +562,37 @@ Run the script with the one argument as shown below.
 ./dirinfo.sh /tmp
 In the output you should see number of files and directories in the directory /tmp.
 
+Job Scheduling
+############################################################################################################################################################
+Schedule jobs to run automatically at certain time
+eg: 
+load scripts at midnight everytime
+Backup script to run every sunday at 2AM
+
+Cron allows you to automate such task.
+
+What are cron, crond & crontab?
+Cron is a service that runs jobs.
+Crond intreprets 'crontab files' and submits jobs to cron
+A crontab is a table of jobs and schedule data
+Crontab command invokes text editor to edit the crontab file.
+
+
+Scheduling cron jobs with crontab
+$ crontab -e  #opens editor
+
+Job Syntax
+m h dom mon dow command
+m - minute
+h - hour
+dom - day of month
+mon - month
+dow - day of week
+
+Example Job:
+30 15 * * 0 date>>sunday.txt
+
+crontab -l  list all cron jobs in the cron table
 
 
 Hands-on Lab: Scheduling Jobs using crontab
@@ -591,13 +622,13 @@ month (1-12)
 weekday (0-6, 0 = Sunday)
 
       
- Step 4 of 7 
-cognitiveclass.ai logo
+ 
+
 Exercise 2 - List cron jobs
 Open a new terminal, by clicking on the menu bar and selecting Terminal->New Terminal, 
       
- Step 4 of 7 
-cognitiveclass.ai logo
+ 
+
 Exercise 2 - List cron jobs
 Open a new terminal, by clicking on the menu bar and selecting Terminal->New Terminal, 
 You may get a message no crontab for theia if your crontab is empty.
