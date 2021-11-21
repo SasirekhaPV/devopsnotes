@@ -1,0 +1,24 @@
+Roles of a SDLC
+#######################################################################################
+Developer Roles
+~~~~~~~~~~~~~~~
+Coding
+Unit Testing
+Code Review-sonar cube
+Push code to Repository[svn/Git]
+
+
+Build Admin Roles
+~~~~~~~~~~~~~~~~~
+Pull latest code from Repo
+Compile Source code
+Execute Unit Test Suites
+Package source code as jar/war/ear
+Deploy to server
+
+Disdvantages of manual Build Process
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Dedicated Administrators are required to do project builds.
+Developers needs to send build requests to admin to do the deployment when new code committed to repo.
+Admin need to spend time to pull the code, to compile , package and deploy the code.
+It is time consuming process.
