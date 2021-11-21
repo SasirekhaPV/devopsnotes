@@ -1,4 +1,4 @@
-Software Requirements
+### Software Requirements
 ########################################################################################################################################################
 
 1. Visual studio code terminal can be used to practice linux
@@ -18,11 +18,11 @@ get the linux machine and change to sudo su -  [ sudo means substitute user do] 
 
 User information commands
 ##########################################################################################################################################################
-
 who - to get information about currently logged in user on to system.
-whoami: It display the system’s username
+whoami:  to check the user in linux machine
+uname - to know the operating system
 
-id: It display the user identification information
+id: It display the user identification information(i:e group id and user id details)
 uid=0(root) gid=0(root) groups=0(root)
 
 groups - This command is used to display all the groups for which the user belongs to.
@@ -31,6 +31,7 @@ root
 finger: Used to check the information of any currently logged in users. i.e, It displays users login time, tty (name), idle time, home directory, shell name etc.
 This may not be available by default in many linux machines. In this case, you need to install it manually.
 $ sudo apt install finger
+
 Login     Name       Tty      Idle  Login Time   Office     Office Phone
 ubuntu    Ubuntu    *pts/0          Nov 10 18:09 (117.223.248.237)
 
@@ -42,6 +43,7 @@ root@ip-172-31-23-135:~# grep -i ubuntu  /etc/passwd
 ubuntu:x:1000:1000:Ubuntu:/home/ubuntu:/bin/bash
 
 W Command: It(W) is a command-line utility that displays information about currently logged in users and what each user is doing.
+
 root@ip-172-31-23-135:~# w
 18:20:45 up 11 min,  1 user,  load average: 0.00, 0.07, 0.09
 USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
@@ -50,17 +52,34 @@ ubuntu   pts/0    117.223.248.237  18:09    1.00s  0.06s  0.01s sshd: ubuntu [pr
 last or lastb: Displays a list of last logged in users on the system. You can pass user names to display their login and hostname details.
 lastlog: The lastlog command is used to find the details of a recent login of all users or of a given user.
 
+Date Commands
+#################################################################################################################################################################
+date - Display date and time
+date "+%D" - The following command displays current date in mm/dd/yy format
+
+Specifier	            Explaination
+%d	                 Display the day of the month (01 to 31)
+%h	                 Displays abbreviated month name (Jan to Dec)
+%m	                 Displays the month of year (01 to 12)
+%Y	                 Display four-digit year
+%T	                 Display the time in 24 hour format as HH:MM:SS
+%H	                 Display the hour
+
+
+
 
 Files and Directory commands
 ##################################################################################################################################################################
-pwd  -  returns the path of the current working directory.
+pwd  -  Prints the name of your current working directory.
 root@ip-172-31-23-135:~# pwd
 /root
 
+Create a directory
 mkdir The mkdir(make directory) command allows users to create directories or folders.
+
 root@ip-172-31-23-135:~# mkdir java
 root@ip-172-31-23-135:~# mkdir spring
-root@ip-172-31-23-135:~# ls
+root@ip-172-31-23-135:~# ls (Use the ls command to verify the directories got created)
 A  gitprojectdemocodes  java  projectA  snap  spring
 
 The option '-p' is used to create multiple directories or parent directories at once.
@@ -73,11 +92,10 @@ Can be used to delete multiple empty directories as well.
 Safer to use compared to rm -r FolderName. 
 This command can also be forced to delete non-empty directories.
 
-i. remove empty directory
--------------------------
+remove empty directory
 rmdir spring  [ no files should be there in the directory]
 
-ii. Remove multiple directory
+Remove multiple directory
 rmdir dir1 dir2 dir3
 root@ip-172-31-23-135:~# mkdir dir4
 root@ip-172-31-23-135:~# mkdir dir5
@@ -113,7 +131,6 @@ root@ip-172-31-23-135:~/projectA# ls
 abc.txt  file2.txt  gitprojectdemocodes  helloworld.java  newfile1.txt  script.sh
 root@ip-172-31-23-135:~/projectA#
 
-
 Remove directory: The rm command with -r option is used to remove the directory and its contents recursively.
 rm -r myDir
 
@@ -124,9 +141,8 @@ https://github.com/sudheerj/Linux-cheat-sheet#file-and-directory-commands
 
 @@@@@@@@@@@@@@@@@
 
-clear - clear the screen
-whoami - to check the user in linux machine
-uname - to know the operating system
+
+
 cd - change directory
 cd.. (with two dots) to move one directory up
 cd to go straight to the home folder
