@@ -1,4 +1,4 @@
-### Software Requirements
+ Software Requirements
 ########################################################################################################################################################
 
 1. Visual studio code terminal can be used to practice linux
@@ -137,11 +137,12 @@ rm -r myDir
 Remove directory forcefully: The rm command with -rf option is used to forcefully remove directory recursively.
 rm -rf myDir
 
-https://github.com/sudheerj/Linux-cheat-sheet#file-and-directory-commands
+The rm command is ideally used along with the -i option, which makes it ask for confirmation before deleting.
+Remove the file myfile.txt. Press y to confirm deletion, or n to cancel
+rm -i myfile.txt
 
-@@@@@@@@@@@@@@@@@
-
-
+use ls command to verify.
+ls -l
 
 cd - change directory
 cd.. (with two dots) to move one directory up
@@ -168,5 +169,205 @@ mv - move or rename files
 mkdir - make a directory
 
 
-rm - remove file and directories
-rm-r - to remove directory and all files inside
+
+Create and manage file archives
+############################################################################################################################
+tar
+tar command allows you to copy multiple files and directories into a single archive file.
+
+The following command creates an archive of the entire '/bin' directory into a file named bin.tar.
+
+The options used are as follows:
+
+Option	Description.
+-c	Create new archive file
+-v	Verbosely list files processed
+-f	Archive file name
+tar -cvf bin.tar /bin
+To see the list of files in the archive, use -t option:
+
+tar -tvf bin.tar
+To untar the archive or extract files from the archive, use -x option:
+
+tar -xvf bin.tar
+Use ls command to verify that the folder bin is extracted.
+
+ls -l
+
+
+
+ Package and compress archive files
+############################################################################################
+zip
+
+zip command allows you to compress files.
+The following command creates a zip named config.zip and of all the files with extension .conf in the /etc directory.
+zip config.zip /etc/*.conf
+
+The -r option can be used to zip the entire folder.
+The following command creates an archive of the '/bin' directory.
+zip -r bin.zip /bin
+
+
+
+ Extract, list, or test compressed files in a ZIP archive
+#########################################################
+
+unzip
+The following command lists the files of the archive called 'config.zip'
+
+unzip -l config.zip
+The following command extracts all the files in the archive bin.zip.
+
+unzip bin.zip
+You should see a folder named bin created in your directory.
+
+
+
+Access Control Commands
+#####################################################################################
+Each file/directory has permissions set for the file owner, group owner and others.
+
+The following permissions are set for each file:
+
+Permission	symbol
+read	r
+write	w
+execute	x
+To see the permissions currently set for a file, run ls -l command.
+
+For example, to see the permissions for a file named 'usdoi.txt' in your current directory, run:
+
+ls -l usdoi.txt
+A sample output looks like:
+
+-rw-r--r-- 1 theia theia 8121 May 31 16:45 usdoi.txt
+
+The permissions set here are 'rw-r--r--'
+
+Here, owner has read and write permissions, group owner has read permission and others also have read permission.
+
+chmod
+
+chmod command lets you change the permissions set for a file.
+
+The change of permissions is specified with the help of a combination of the following characters:
+
+Option	Description.
+r, w and x	representing read, write and execute permissions respectively
+u,g and o	representing user categories owner, group and others respectively
++, -	representing grant and revoke operations respectively
+The command below removes read permission for all (user,group and other) on usdoi.txt.
+
+chmod -r usdoi.txt               
+Verify the changed permissions.
+
+ls -l usdoi.txt
+Add read access to all on usdoi.txt.
+
+chmod +r usdoi.txt                
+Verify the changed permissions.
+
+ls -l usdoi.txt
+To remove the read permission for 'others' category.
+
+chmod o-r usdoi.txt
+Verify the changed permissions.
+
+ls -l usdoi.txt
+
+
+
+Text Processing Commands
+###########################################################################################
+5.1. Count lines, words or characters
+
+wc
+If you want to find the number of lines, words and characters in a file, for example 'usdoi.txt'.
+
+wc usdoi.txt
+The output contains the number of lines followed by number of words followed by number of characters in the file.
+
+Print only the number of lines in 'usdoi.txt'.
+
+wc -l usdoi.txt
+Print only the number of words in 'usdoi.txt'.
+
+wc -w usdoi.txt
+Print only the number of characters in 'usdoi.txt'.
+
+wc -c usdoi.txt
+
+
+
+
+Perform search operations within the text
+###################################################################################################
+
+grep
+grep command allows you to specify patterns and search for lines matching the pattern, from the input text.
+
+The following command prints all lines in the file usdoi.txt which contain the word people.
+
+grep people usdoi.txt
+Some of the frequently used options of grep are:
+
+Option	Description.
+-n	Along with the matching lines, print the line numbers also
+-c	Get the count of matching lines
+-i	Ignore the case of the text while matching
+-v	Print all lines which do not contain the pattern
+-w	Match only if the pattern matches whole words
+    Prints all lines from the /etc/passwd file, which do not contain the pattern login.
+grep -v login /etc/passwd
+
+
+
+
+Networking commands
+####################################################################################################
+Show the system's host name
+
+hostname
+
+To view the current host name, run the command below .
+
+hostname
+You can use the -i option to view the IP adrress of the host:
+
+hostname -i
+6.2. Test if a host is reachable
+
+ping
+
+Check if www.google.com is reachable. The command keeps sending data packets to the www.google.com server and prints the response it gets back. (Press Ctrl+C to stop pinging)
+
+ping www.google.com
+If you want to ping only for a limited number of times, use -c option.
+
+ping -c 5 www.google.com
+6.3. Display network interface configuration
+
+ifconfig
+
+Configures or displays network interface parameters for a network.
+
+Display the configuration of all network interfaces of the system:
+
+ifconfig
+Display the configuration of the ethernet adapter.
+
+ifconfig eth0
+eth0 is usually the primary network interface that connects your server to the network.
+
+You can see your server's ip address in the line number 2 after the word inet.
+
+6.4. Transfer data from or to a server
+
+curl
+
+Access the file at the given url and display the contents on to the screen.
+
+curl https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DB0250EN-SkillsNetwork/labs/Bash%20Scripting/usdoi.txt
+Access the file at the given url and save it in the current directory.
+curl -O https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DB0250EN-SkillsNetwork/labs/Bash%20Scripting/usdoi.txt
